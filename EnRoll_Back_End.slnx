@@ -4,7 +4,12 @@
     <Project Path="UserGateway/UserGateway.csproj" Id="d65733f7-1b49-4851-b3d6-e393e2ab9351" />
   </Folder>
   <Folder Name="/Src/Services/" />
-  <Folder Name="/Src/Services/IdentityService/" />
+  <Folder Name="/Src/Services/IdentityService/">
+    <Project Path="IdentityService.Api/IdentityService.Api.csproj" Id="5c003c0a-a040-4da3-a452-6bedb7e68385" />
+    <Project Path="IdentityService.Application/IdentityService.Application.csproj" Id="79cedaf5-ae7a-4c0e-8a24-f8f0206a97f3" />
+    <Project Path="IdentityService.Domain/IdentityService.Domain.csproj" Id="2b834fe0-b45c-4117-89f2-a3fee8bfae43" />
+    <Project Path="IdentityService.Infrastructure/IdentityService.Infrastructure.csproj" Id="c3703fc7-9e85-44ac-838f-0f46f13efdbb" />
+  </Folder>
   <Folder Name="/Src/Services/NotificationService/" />
   <Folder Name="/Src/Shared/" />
 </Solution>

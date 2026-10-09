@@ -1,0 +1,12 @@
+@GatewayUrl = http://localhost:5000
+@ServiceUrl = http://localhost:4000
+
+### Test Identity Service directly
+GET {{ServiceUrl}}/api/users
+Accept: application/json
+
+###
+
+### Test through Gateway
+GET {{GatewayUrl}}/users
+Accept: application/json
