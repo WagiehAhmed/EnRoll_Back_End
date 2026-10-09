@@ -1,8 +1,8 @@
 <Solution>
   <Folder Name="/Src/" />
-  <Folder Name="/Src/Gateways/" />
-  <Folder Name="/Src/Gateways/AdminGateway/" />
-  <Folder Name="/Src/Gateways/UserGateway/" />
+  <Folder Name="/Src/Gateways/">
+    <Project Path="UserGateway/UserGateway.csproj" Id="d65733f7-1b49-4851-b3d6-e393e2ab9351" />
+  </Folder>
   <Folder Name="/Src/Services/" />
   <Folder Name="/Src/Services/IdentityService/" />
   <Folder Name="/Src/Services/NotificationService/" />
