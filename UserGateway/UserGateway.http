@@ -1,0 +1,6 @@
+@UserGateway_HostAddress = http://localhost:5022
+
+GET {{UserGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
