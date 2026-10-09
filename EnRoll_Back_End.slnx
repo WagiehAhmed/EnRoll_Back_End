@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Src/" />
+  <Folder Name="/Src/Gateways/" />
+  <Folder Name="/Src/Gateways/AdminGateway/" />
+  <Folder Name="/Src/Gateways/UserGateway/" />
+  <Folder Name="/Src/Services/" />
+  <Folder Name="/Src/Services/IdentityService/" />
+  <Folder Name="/Src/Services/NotificationService/" />
+  <Folder Name="/Src/Shared/" />
+</Solution>
