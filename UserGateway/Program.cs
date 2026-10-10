@@ -1,41 +1,37 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-
+using UserGateway.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-//Ocelot-------------------------------------------------------------------------------------------------------
-// Load ocelot.json
+// Ocelot Configuration ------------------------------------------------------------------
 builder.Configuration
     .SetBasePath(builder.Environment.ContentRootPath)
-    .AddOcelot();
+    .AddOcelot(builder.Environment);
 
 // Register Ocelot services
 builder.Services.AddOcelot(builder.Configuration);
 
+// JWT Authentication --------------------------------------------------------------------
+builder.Services
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["Authentication:Authority"];
+        options.Audience = builder.Configuration["Authentication:Audience"];
+        options.RequireHttpsMetadata = true;
+    });
+
 var app = builder.Build();
 
-//MapOpenApi---------------------------------------------------------------------------------------------------
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-//Ocelot-------------------------------------------------------------------------------------------------------
-// Add Ocelot middleware
-await app.UseOcelot();
+// Custom Middleware: Resolve ClientId & JWT User Claims prior to Rate Limiting
+app.UseClientIdentification("X-Client-Id");
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
-app.UseAuthorization();
-
-app.MapControllers();
+// Execute Ocelot Gateway Pipeline
+await app.UseOcelot();
 
 app.Run();
