@@ -1,0 +1,8 @@
+# Use this workspace to collaborate
+workspace:
+  id: 99ff341f-f4f1-4139-8f3e-ce5914ba8307
+
+localResources:
+  specs:
+    - ../IdentityService.Api/obj/Debug/net10.0/EndpointInfo/IdentityService.Api.json
+    - ../UserGateway/obj/Debug/net10.0/EndpointInfo/UserGateway.json
