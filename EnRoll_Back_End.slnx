@@ -12,4 +12,7 @@
   </Folder>
   <Folder Name="/Src/Services/NotificationService/" />
   <Folder Name="/Src/Shared/" />
+  <Folder Name="/Tests/">
+    <Project Path="UserGateway.Tests/UserGateway.Tests.csproj" />
+  </Folder>
 </Solution>

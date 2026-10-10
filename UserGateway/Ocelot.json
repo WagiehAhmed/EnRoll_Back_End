@@ -10,15 +10,29 @@
         }
       ],
       "UpstreamPathTemplate": "/users/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "PATCH", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+      ],
       "Key": "UsersRoute",
-      "Priority": 1
+      "Priority": 1,
+      "RateLimitOptions": {
+        "ClientIdHeader": "X-Client-Id",
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "EnableHeaders": true,
+        "Limit": 100,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "StatusCode": 429,
+        "QuotaExceededMessage": "Client request quota exceeded for your ClientId or JWT user account."
+      }
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000",
-    "RequestIdKey": "OcelotRequestId",
-    "UseServiceDiscovery": false,
-    "AllowAutoRedirect": true
+    "BaseUrl": "http://localhost:5000"
   }
 }
